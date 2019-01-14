@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hndt.dao.ArticleMapper">
+    <resultMap id="BaseResultMap" type="com.hndt.pojo.Article">
+        <constructor>
+            <idArg column="id" javaType="java.lang.Long" jdbcType="BIGINT"/>
+            <arg column="title_home" javaType="java.lang.String" jdbcType="VARCHAR"/>
+            <arg column="title" javaType="java.lang.String" jdbcType="VARCHAR"/>
+            <arg column="body" javaType="java.lang.String" jdbcType="VARCHAR"/>
+            <arg column="author" javaType="java.lang.String" jdbcType="VARCHAR"/>
+            <arg column="origin" javaType="java.lang.String" jdbcType="VARCHAR"/>
+            <arg column="attachments" javaType="java.lang.String" jdbcType="VARCHAR"/>
+            <arg column="body_images" javaType="java.lang.String" jdbcType="VARCHAR"/>
+            <arg column="publish_time" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
+        </constructor>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, title_home, title, body, author, origin, attachments, body_images, publish_time
+    </sql>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from article
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete from article
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+
+    <insert id="insert" parameterType="com.hndt.pojo.Article">
+        insert into article (id, title_home, title, body, author, origin, attachments, body_images, publish_time)
+        values (#{id,jdbcType=BIGINT},
+          #{titleHome,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{body,jdbcType=VARCHAR},
+          #{author,jdbcType=VARCHAR}, #{origin,jdbcType=VARCHAR}, #{attachments,jdbcType=VARCHAR},
+          #{bodyImages,jdbcType=VARCHAR}, #{publishTime,jdbcType=TIMESTAMP} )
+    </insert>
+
+    <insert id="insertSelective" parameterType="com.hndt.pojo.Article">
+        insert into article
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="titleHome != null">
+                title_home,
+            </if>
+            <if test="title != null">
+                title,
+            </if>
+            <if test="body != null">
+                body,
+            </if>
+            <if test="author != null">
+                author,
+            </if>
+            <if test="origin != null">
+                origin,
+            </if>
+            <if test="attachments != null">
+                attachments,
+            </if>
+            <if test="bodyImages != null">
+                body_images,
+            </if>
+            <if test="publishTime != null">
+                publish_time,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="titleHome != null">
+                #{titleHome,jdbcType=VARCHAR},
+            </if>
+            <if test="title != null">
+                #{title,jdbcType=VARCHAR},
+            </if>
+            <if test="body != null">
+                #{body,jdbcType=VARCHAR},
+            </if>
+            <if test="author != null">
+                #{author,jdbcType=VARCHAR},
+            </if>
+            <if test="origin != null">
+                #{origin,jdbcType=VARCHAR},
+            </if>
+            <if test="attachments != null">
+                #{attachments,jdbcType=VARCHAR},
+            </if>
+            <if test="bodyImages != null">
+                #{bodyImages,jdbcType=VARCHAR},
+            </if>
+            <if test="publishTime != null">
+                #{publishTime,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="updateByPrimaryKeySelective" parameterType="com.hndt.pojo.Article">
+        update article
+        <set>
+            <if test="channelId != null">
+                channel_id = #{channelId,jdbcType=INTEGER},
+            </if>
+            <if test="managerId != null">
+                manager_id = #{managerId,jdbcType=INTEGER},
+            </if>
+            <if test="code != null">
+                code = #{code,jdbcType=VARCHAR},
+            </if>
+            <if test="category != null">
+                category = #{category,jdbcType=BIT},
+            </if>
+            <if test="status != null">
+                `status` = #{status,jdbcType=BIT},
+            </if>
+            <if test="sequence != null">
+                `sequence` = #{sequence,jdbcType=BIGINT},
+            </if>
+            <if test="titleHome != null">
+                title_home = #{titleHome,jdbcType=VARCHAR},
+            </if>
+            <if test="title != null">
+                title = #{title,jdbcType=VARCHAR},
+            </if>
+            <if test="style != null">
+                `style` = #{style,jdbcType=CHAR},
+            </if>
+            <if test="author != null">
+                author = #{author,jdbcType=VARCHAR},
+            </if>
+            <if test="origin != null">
+                origin = #{origin,jdbcType=VARCHAR},
+            </if>
+            <if test="keywords != null">
+                keywords = #{keywords,jdbcType=VARCHAR},
+            </if>
+            <if test="description != null">
+                description = #{description,jdbcType=VARCHAR},
+            </if>
+            <if test="refersId != null">
+                refers_id = #{refersId,jdbcType=VARCHAR},
+            </if>
+            <if test="linkTo != null">
+                link_to = #{linkTo,jdbcType=VARCHAR},
+            </if>
+            <if test="relatedIds != null">
+                related_ids = #{relatedIds,jdbcType=VARCHAR},
+            </if>
+            <if test="top != null">
+                `top` = #{top,jdbcType=BIT},
+            </if>
+            <if test="hidden != null">
+                hidden = #{hidden,jdbcType=BIT},
+            </if>
+            <if test="click != null">
+                click = #{click,jdbcType=BIGINT},
+            </if>
+            <if test="createtime != null">
+                createtime = #{createtime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="statusTime != null">
+                status_time = #{statusTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="publishTime != null">
+                publish_time = #{publishTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="body != null">
+                body = #{body,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="attachments != null">
+                attachments = #{attachments,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="bodyImages != null">
+                body_images = #{bodyImages,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="extra != null">
+                extra = #{extra,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="bodyVideos != null">
+                body_videos = #{bodyVideos,jdbcType=LONGVARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.hndt.pojo.Article">
+    update article
+    set channel_id = #{channelId,jdbcType=INTEGER},
+      manager_id = #{managerId,jdbcType=INTEGER},
+      code = #{code,jdbcType=VARCHAR},
+      category = #{category,jdbcType=BIT},
+      `status` = #{status,jdbcType=BIT},
+      `sequence` = #{sequence,jdbcType=BIGINT},
+      title_home = #{titleHome,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      `style` = #{style,jdbcType=CHAR},
+      author = #{author,jdbcType=VARCHAR},
+      origin = #{origin,jdbcType=VARCHAR},
+      keywords = #{keywords,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR},
+      refers_id = #{refersId,jdbcType=VARCHAR},
+      link_to = #{linkTo,jdbcType=VARCHAR},
+      related_ids = #{relatedIds,jdbcType=VARCHAR},
+      `top` = #{top,jdbcType=BIT},
+      hidden = #{hidden,jdbcType=BIT},
+      click = #{click,jdbcType=BIGINT},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      status_time = #{statusTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      publish_time = #{publishTime,jdbcType=TIMESTAMP},
+      body = #{body,jdbcType=LONGVARCHAR},
+      attachments = #{attachments,jdbcType=LONGVARCHAR},
+      body_images = #{bodyImages,jdbcType=LONGVARCHAR},
+      extra = #{extra,jdbcType=LONGVARCHAR},
+      body_videos = #{bodyVideos,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+    <update id="updateByPrimaryKey" parameterType="com.hndt.pojo.Article">
+    update article
+    set channel_id = #{channelId,jdbcType=INTEGER},
+      manager_id = #{managerId,jdbcType=INTEGER},
+      code = #{code,jdbcType=VARCHAR},
+      category = #{category,jdbcType=BIT},
+      `status` = #{status,jdbcType=BIT},
+      `sequence` = #{sequence,jdbcType=BIGINT},
+      title_home = #{titleHome,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      `style` = #{style,jdbcType=CHAR},
+      author = #{author,jdbcType=VARCHAR},
+      origin = #{origin,jdbcType=VARCHAR},
+      keywords = #{keywords,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR},
+      refers_id = #{refersId,jdbcType=VARCHAR},
+      link_to = #{linkTo,jdbcType=VARCHAR},
+      related_ids = #{relatedIds,jdbcType=VARCHAR},
+      `top` = #{top,jdbcType=BIT},
+      hidden = #{hidden,jdbcType=BIT},
+      click = #{click,jdbcType=BIGINT},
+      createtime = #{createtime,jdbcType=TIMESTAMP},
+      status_time = #{statusTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      publish_time = #{publishTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
