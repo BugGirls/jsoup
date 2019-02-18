@@ -9,7 +9,7 @@ import lombok.Getter;
  * @date 2019/1/8
  */
 @Getter
-public enum ZhongKaoShaoShengEnum {
+public enum ZhongKaoZhaoShengEnum {
 
     /**
      * 中招快讯
@@ -24,7 +24,7 @@ public enum ZhongKaoShaoShengEnum {
     private Integer code;
     private String value;
 
-    ZhongKaoShaoShengEnum(Integer code, String value) {
+    ZhongKaoZhaoShengEnum(Integer code, String value) {
         this.code = code;
         this.value = value;
     }

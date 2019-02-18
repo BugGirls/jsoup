@@ -19,7 +19,7 @@ public enum PuTongGaoZhaoEnum {
     /**
      * 高校招考
      */
-    GAOZHAOKUAIXUN(1294, "/putonggaozhao/gaozhaokuaixun/"),
+//    GAOZHAOKUAIXUN(1294, "/putonggaozhao/gaozhaokuaixun/"),
 
     /**
      * 志愿填报

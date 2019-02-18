@@ -14,12 +14,12 @@ public enum LiuXueZaiXianEnum {
     /**
      * 留学快讯
      */
-    LIUXUEKUAIXUN(1308, "/liuxuezaixian/liuxuekuaixun/"),
+//    LIUXUEKUAIXUN(1308, "/liuxuezaixian/liuxuekuaixun/"),
 
     /**
      * 留学答疑
      */
-    JUJIAOHAIGUI(1309, "/liuxuezaixian/jujiaohaigui/"),
+//    JUJIAOHAIGUI(1309, "/liuxuezaixian/jujiaohaigui/"),
 
     /**
      * 聚焦海归

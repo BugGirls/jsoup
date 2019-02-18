@@ -1,8 +1,7 @@
 package com.hndt.service;
 
 import com.google.common.base.Strings;
-import com.hndt.enums.GongWuYuanZhaoKaoEnum;
-import com.hndt.enums.ZiKaoJiChengRenGaoZhaoEnum;
+import com.hndt.enums.*;
 import com.hndt.pojo.Article;
 import com.hndt.util.DateUtil;
 import com.hndt.util.JsoupUtil;
@@ -28,7 +27,7 @@ public class JsoupService {
      * 获取网页数据
      */
     public synchronized void test() throws InterruptedException {
-        for (GongWuYuanZhaoKaoEnum values : GongWuYuanZhaoKaoEnum.values()) {
+        for (ZiXunTouSu values : ZiXunTouSu.values()) {
             for (int year = 2013; year < 2019; year++) {
                 for (int month = 0; month < 12; month++) {
                     count = 0;
